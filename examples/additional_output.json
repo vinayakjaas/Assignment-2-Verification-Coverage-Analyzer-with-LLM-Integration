@@ -1,0 +1,201 @@
+{
+  "suggestions": [
+    {
+      "target_bin": "cg_error_paths.cp_error.key_expansion_fail",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that sets the AES engine to use a key length of 192 bits (0xC0) and configures the key expansion to fail by providing an invalid key (e.g., 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF). Set the error injection register to trigger a key expansion failure.",
+      "test_outline": [
+        "1. Configure AES engine with key length 192 bits (0xC0) and set key register to 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.",
+        "2. Set the error injection register to trigger key expansion failure.",
+        "3. Start the AES engine and verify that the key expansion failure is correctly reported in the status register."
+      ],
+      "dependencies": [
+        "Ensure the AES engine supports error injection",
+        "Access to the correct register map for configuration"
+      ],
+      "reasoning": "The coverage shows that key lengths of 128 and 256 bits are functioning correctly, indicating basic key handling is operational. However, the lack of coverage for the key expansion failure suggests that edge cases, such as invalid keys, have not been tested, making this bin a critical area for validation.",
+      "priority_score": 0.5666800000000001,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_error_paths.cp_error.timeout",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate with a key length of 128 bits and sets the mode to CBC. Introduce a timeout condition by setting the timeout register to 1000 cycles and initiating an encryption operation that is deliberately delayed to exceed this timeout.",
+      "test_outline": [
+        "1. Configure AES engine with key length 128 bits and mode CBC",
+        "2. Set timeout register to 1000 cycles",
+        "3. Initiate encryption operation with a delay (e.g., using a wait state or stall)",
+        "4. Verify that the timeout error is triggered and the appropriate error handling is executed"
+      ],
+      "dependencies": [
+        "Ensure AES engine supports timeout configuration",
+        "Knowledge of how to introduce delays in the encryption process"
+      ],
+      "reasoning": "The coverage shows that key lengths of 128 and 256 bits, as well as modes like ECB and CBC, are functioning correctly, indicating basic operational paths are validated. However, the timeout error path remains uncovered, suggesting that specific scenarios leading to timeouts need to be tested, particularly under conditions that may cause delays in processing.",
+      "priority_score": 0.5666800000000001,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_mode_key.cbc, len_192",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that initializes the AES engine in CBC mode with a 192-bit key. Set the key to 0x0123456789ABCDEF0123456789ABCDEF and the initialization vector (IV) to 0x00000000000000000000000000000000. Use a plaintext input of 0x00112233445566778899AABBCCDDEEFF.",
+      "test_outline": [
+        "1. Configure AES engine with mode set to CBC and key length set to 192 bits.",
+        "2. Load key register with 0x0123456789ABCDEF0123456789ABCDEF and IV register with 0x00000000000000000000000000000000.",
+        "3. Input plaintext 0x00112233445566778899AABBCCDDEEFF and start encryption.",
+        "4. Verify the output against expected ciphertext."
+      ],
+      "dependencies": [
+        "Ensure AES engine supports 192-bit key length",
+        "Access to expected ciphertext for validation"
+      ],
+      "reasoning": "The coverage shows that both len_128 and len_256 are working, indicating that the basic key length functionality is correct. However, the lack of coverage for len_192 suggests that this specific configuration may require unique handling or validation, making it a critical edge case to test.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.625,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_mode_key.cbc, len_256",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in CBC mode with a 256-bit key. Set the key to 0x00000000000000000000000000000000 and the plaintext input to 0x00112233445566778899AABBCCDDEEFF. Use an initialization vector (IV) of 0x00000000000000000000000000000000.",
+      "test_outline": [
+        "1. Configure AES engine with mode set to CBC and key length to 256 bits",
+        "2. Set key register to 0x00000000000000000000000000000000",
+        "3. Load plaintext input 0x00112233445566778899AABBCCDDEEFF and IV 0x00000000000000000000000000000000",
+        "4. Start encryption and verify output against expected ciphertext"
+      ],
+      "dependencies": [
+        "Ensure AES engine supports CBC mode with 256-bit key",
+        "Access to expected ciphertext for verification"
+      ],
+      "reasoning": "The coverage shows that both key lengths (len_128, len_256) and modes (ecb, cbc) are partially covered, indicating basic functionality is correct. However, the cross_mode_key bin is not covered, suggesting that specific configurations for CBC mode with a 256-bit key need to be tested to ensure proper operation and error handling.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.625,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_mode_key.ctr, len_128",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in CTR mode with a 128-bit key. Set the key to 0x000102030405060708090A0B0C0D0E0F and the initialization vector (IV) to 0x00000000000000000000000000000000. Use a plaintext input of 16 bytes (0x00112233445566778899AABBCCDDEEFF) and verify the ciphertext output.",
+      "test_outline": [
+        "1. Configure AES engine with key 0x000102030405060708090A0B0C0D0E0F and mode set to CTR",
+        "2. Set initialization vector (IV) to 0x00000000000000000000000000000000",
+        "3. Input plaintext 0x00112233445566778899AABBCCDDEEFF and start encryption",
+        "4. Verify the output ciphertext against expected value (e.g., 0x8EA2B7C5A0B11E0B9D1B2A3D4C5E6F7F)"
+      ],
+      "dependencies": [
+        "Ensure AES engine supports CTR mode",
+        "Knowledge of expected ciphertext for verification"
+      ],
+      "reasoning": "The coverage shows that key lengths of 128 and 256 bits are working, and modes like ECB and CBC are covered, indicating basic AES functionality is correct. However, CTR mode is not covered, suggesting it may require specific configuration and testing to ensure proper operation, especially since it has unique requirements for IV and block processing.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.625,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_mode_key.ctr, len_256",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in CTR mode with a 256-bit key. Set the key to 0x00000000000000000000000000000000 and the initialization vector (IV) to 0x00000000000000000000000000000000. Use a plaintext block of 16 bytes filled with 0x01 for encryption.",
+      "test_outline": [
+        "1. Configure AES engine with key length 256 bits using key 0x00000000000000000000000000000000",
+        "2. Set mode to CTR and initialize IV to 0x00000000000000000000000000000000",
+        "3. Encrypt a plaintext block of 16 bytes filled with 0x01 and verify the output against expected ciphertext"
+      ],
+      "dependencies": [
+        "Ensure AES engine supports CTR mode",
+        "Access to expected ciphertext for verification"
+      ],
+      "reasoning": "The coverage shows that both key lengths (len_128, len_256) and modes (ecb, cbc) are functioning correctly, indicating basic AES functionality is intact. However, CTR mode has not been tested, suggesting this is an edge case that requires specific configuration for proper operation.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.625,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_mode_key.gcm, len_256",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in GCM mode with a 256-bit key. Set the key to 0x000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F and the initialization vector (IV) to 0x00000000000000000000000000000000. Use a plaintext of 16 bytes (0x00112233445566778899AABBCCDDEEFF) and a 16-byte associated data (0x112233445566778899AABBCCDDEEFF00).",
+      "test_outline": [
+        "1. Configure AES engine with mode set to GCM and key length set to 256 bits",
+        "2. Load key (0x000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F) and IV (0x00000000000000000000000000000000)",
+        "3. Encrypt the plaintext (0x00112233445566778899AABBCCDDEEFF) with associated data (0x112233445566778899AABBCCDDEEFF00) and verify the output against expected ciphertext."
+      ],
+      "dependencies": [
+        "Ensure AES engine supports GCM mode",
+        "Knowledge of expected ciphertext for verification"
+      ],
+      "reasoning": "The coverage shows that both key lengths (len_128, len_256) and modes (ecb, cbc) are functioning correctly, indicating basic AES operations are validated. However, the cross_mode_key bin for GCM with len_256 is uncovered, suggesting that while basic configurations are correct, GCM mode requires specific handling of associated data and IV that hasn't been tested yet.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.625,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_modes.cp_mode.ctr",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in CTR mode with a key length of 128 bits. Set the input data to a known plaintext value (e.g., 0x00112233445566778899AABBCCDDEEFF) and initialize the IV to 0x00000000000000000000000000000000. Use a block size of 16 bytes and perform encryption on a single block.",
+      "test_outline": [
+        "1. Configure AES engine with key length 128 bits and set key to 0x000102030405060708090A0B0C0D0E0F",
+        "2. Set mode to CTR and initialize IV to 0x00000000000000000000000000000000",
+        "3. Load plaintext 0x00112233445566778899AABBCCDDEEFF and start encryption",
+        "4. Verify output against expected ciphertext using known CTR mode results"
+      ],
+      "dependencies": [
+        "Ensure AES engine supports CTR mode",
+        "Access to expected ciphertext for verification"
+      ],
+      "reasoning": "The coverage shows that ECB and CBC modes are functioning correctly, indicating that the basic AES engine setup is operational. However, CTR mode requires specific initialization with an IV and a unique handling of the counter, making it a distinct scenario that has not been tested yet, thus presenting a coverage gap.",
+      "priority_score": 0.5,
+      "coverage_impact": 0.5,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_modes.cp_mode.gcm",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine to operate in GCM mode with a 128-bit key length. Set the input data to a known plaintext value of 0x00112233445566778899AABBCCDDEEFF and the associated data to 0x112233445566778899AABBCCDDEEFF00. Use a nonce value of 0x00000000000000000000000000000001.",
+      "test_outline": [
+        "1. Configure AES engine to GCM mode with key length set to 128 bits (register AES_MODE = 0x1, AES_KEY_LEN = 0x0).",
+        "2. Load plaintext data 0x00112233445566778899AABBCCDDEEFF into the input buffer (register AES_INPUT = 0x00112233445566778899AABBCCDDEEFF).",
+        "3. Load associated data 0x112233445566778899AABBCCDDEEFF00 into the associated data buffer (register AES_AAD = 0x112233445566778899AABBCCDDEEFF00).",
+        "4. Set nonce value to 0x00000000000000000000000000000001 (register AES_NONCE = 0x00000000000000000000000000000001).",
+        "5. Start the AES operation and verify the output against expected ciphertext and authentication tag."
+      ],
+      "dependencies": [
+        "Ensure AES engine supports GCM mode",
+        "Access to expected ciphertext and authentication tag for verification"
+      ],
+      "reasoning": "The coverage shows that ECB and CBC modes are working, indicating that the basic AES functionality is correct. However, GCM mode introduces additional complexity with authentication and nonce handling, making it a harder edge case that requires specific configuration to validate its operation.",
+      "priority_score": 0.5,
+      "coverage_impact": 0.5,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_key_lengths.cp_key_len.len_192",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the AES engine for a 192-bit key length by writing the key to the appropriate register (e.g., AES_KEY_REG at address 0x4000_0000) and setting the key length configuration in the control register (e.g., AES_CTRL_REG at address 0x4000_0004) to 0x2. Initiate an encryption operation with a sample plaintext (e.g., 0x00112233445566778899AABBCCDDEEFF) to validate the functionality.",
+      "test_outline": [
+        "1. Write the 192-bit key (e.g., 0x00112233445566778899AABBCCDDEEFF) to AES_KEY_REG at address 0x4000_0000.",
+        "2. Set the key length in AES_CTRL_REG at address 0x4000_0004 to 0x2 to configure for 192-bit key length.",
+        "3. Initiate the encryption operation with plaintext 0x00112233445566778899AABBCCDDEEFF and verify the output against expected ciphertext."
+      ],
+      "dependencies": [
+        "Ensure the AES engine is properly instantiated and accessible",
+        "Knowledge of the expected ciphertext for validation"
+      ],
+      "reasoning": "The coverage shows that 128-bit and 256-bit key lengths are working correctly, indicating that the basic AES functionality is implemented. However, the uncovered 192-bit key length likely requires specific configuration that hasn't been tested yet, making it an edge case. This suggests that while the overall AES engine is functional, the specific handling of the 192-bit key length needs to be validated.",
+      "priority_score": 0.4333199999999999,
+      "coverage_impact": 0.33329999999999993,
+      "dependency_score": 0.5
+    }
+  ]
+}

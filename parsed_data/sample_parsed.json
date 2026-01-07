@@ -1,0 +1,304 @@
+{
+  "design": "dma_controller",
+  "overall_coverage": 54.84,
+  "covergroups": [
+    {
+      "name": "cg_transfer_size",
+      "coverage": 75.0,
+      "coverpoints": [
+        {
+          "name": "cp_size",
+          "bins": [
+            {
+              "name": "small",
+              "range": "[0:255]",
+              "hits": 1523,
+              "covered": true,
+              "raw": "bin small[0:255] hits: 1523 covered"
+            },
+            {
+              "name": "medium",
+              "range": "[256:1023]",
+              "hits": 892,
+              "covered": true,
+              "raw": "bin medium[256:1023] hits: 892 covered"
+            },
+            {
+              "name": "large",
+              "range": "[1024:4095]",
+              "hits": 445,
+              "covered": true,
+              "raw": "bin large[1024:4095] hits: 445 covered"
+            },
+            {
+              "name": "max",
+              "range": "[4096]",
+              "hits": 0,
+              "covered": false,
+              "raw": "bin max[4096] hits: 0 UNCOVERED"
+            }
+          ]
+        },
+        {
+          "name": "cp_burst_type",
+          "bins": [
+            {
+              "name": "single",
+              "range": null,
+              "hits": 2341,
+              "covered": true,
+              "raw": "bin single hits: 2341 covered"
+            },
+            {
+              "name": "incr",
+              "range": null,
+              "hits": 1822,
+              "covered": true,
+              "raw": "bin incr hits: 1822 covered"
+            },
+            {
+              "name": "wrap",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin wrap hits: 0 UNCOVERED"
+            },
+            {
+              "name": "fixed",
+              "range": null,
+              "hits": 234,
+              "covered": true,
+              "raw": "bin fixed hits: 234 covered"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cg_channel_arbitration",
+      "coverage": 60.0,
+      "coverpoints": [
+        {
+          "name": "cp_active_channels",
+          "bins": [
+            {
+              "name": "one_channel",
+              "range": null,
+              "hits": 5000,
+              "covered": true,
+              "raw": "bin one_channel hits: 5000 covered"
+            },
+            {
+              "name": "two_channels",
+              "range": null,
+              "hits": 1200,
+              "covered": true,
+              "raw": "bin two_channels hits: 1200 covered"
+            },
+            {
+              "name": "three_channels",
+              "range": null,
+              "hits": 45,
+              "covered": true,
+              "raw": "bin three_channels hits: 45 covered"
+            },
+            {
+              "name": "four_channels",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin four_channels hits: 0 UNCOVERED"
+            },
+            {
+              "name": "all_eight",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin all_eight hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cg_error_scenarios",
+      "coverage": 33.33,
+      "coverpoints": [
+        {
+          "name": "cp_error_type",
+          "bins": [
+            {
+              "name": "no_error",
+              "range": null,
+              "hits": 10000,
+              "covered": true,
+              "raw": "bin no_error hits: 10000 covered"
+            },
+            {
+              "name": "slave_error",
+              "range": null,
+              "hits": 234,
+              "covered": true,
+              "raw": "bin slave_error hits: 234 covered"
+            },
+            {
+              "name": "decode_error",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin decode_error hits: 0 UNCOVERED"
+            },
+            {
+              "name": "timeout",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin timeout hits: 0 UNCOVERED"
+            }
+          ]
+        },
+        {
+          "name": "cp_error_recovery",
+          "bins": [
+            {
+              "name": "retry_success",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin retry_success hits: 0 UNCOVERED"
+            },
+            {
+              "name": "abort",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin abort hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cross_coverage": [
+    {
+      "name": "cross_size_burst",
+      "coverage": 50.0,
+      "bins": [
+        {
+          "label": "small, single",
+          "hits": 500,
+          "covered": true,
+          "raw": "<small, single> hits: 500 covered"
+        },
+        {
+          "label": "small, incr",
+          "hits": 400,
+          "covered": true,
+          "raw": "<small, incr> hits: 400 covered"
+        },
+        {
+          "label": "small, wrap",
+          "hits": 0,
+          "covered": false,
+          "raw": "<small, wrap> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "small, fixed",
+          "hits": 100,
+          "covered": true,
+          "raw": "<small, fixed> hits: 100 covered"
+        },
+        {
+          "label": "medium, single",
+          "hits": 300,
+          "covered": true,
+          "raw": "<medium, single> hits: 300 covered"
+        },
+        {
+          "label": "medium, incr",
+          "hits": 250,
+          "covered": true,
+          "raw": "<medium, incr> hits: 250 covered"
+        },
+        {
+          "label": "medium, wrap",
+          "hits": 0,
+          "covered": false,
+          "raw": "<medium, wrap> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "medium, fixed",
+          "hits": 0,
+          "covered": false,
+          "raw": "<medium, fixed> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "large, single",
+          "hits": 200,
+          "covered": true,
+          "raw": "<large, single> hits: 200 covered"
+        },
+        {
+          "label": "large, incr",
+          "hits": 0,
+          "covered": false,
+          "raw": "<large, incr> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "large, wrap",
+          "hits": 0,
+          "covered": false,
+          "raw": "<large, wrap> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "large, fixed",
+          "hits": 0,
+          "covered": false,
+          "raw": "<large, fixed> hits: 0 UNCOVERED"
+        }
+      ]
+    }
+  ],
+  "uncovered_bins": [
+    {
+      "covergroup": "cg_transfer_size",
+      "coverpoint": "cp_size",
+      "bin": "max[4096]"
+    },
+    {
+      "covergroup": "cg_transfer_size",
+      "coverpoint": "cp_burst_type",
+      "bin": "wrap"
+    },
+    {
+      "covergroup": "cg_channel_arbitration",
+      "coverpoint": "cp_active_channels",
+      "bin": "four_channels"
+    },
+    {
+      "covergroup": "cg_channel_arbitration",
+      "coverpoint": "cp_active_channels",
+      "bin": "all_eight"
+    },
+    {
+      "covergroup": "cg_error_scenarios",
+      "coverpoint": "cp_error_type",
+      "bin": "decode_error"
+    },
+    {
+      "covergroup": "cg_error_scenarios",
+      "coverpoint": "cp_error_type",
+      "bin": "timeout"
+    },
+    {
+      "covergroup": "cg_error_scenarios",
+      "coverpoint": "cp_error_recovery",
+      "bin": "retry_success"
+    },
+    {
+      "covergroup": "cg_error_scenarios",
+      "coverpoint": "cp_error_recovery",
+      "bin": "abort"
+    }
+  ]
+}

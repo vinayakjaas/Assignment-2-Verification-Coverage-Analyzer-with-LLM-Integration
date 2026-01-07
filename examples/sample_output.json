@@ -1,0 +1,259 @@
+{
+  "suggestions": [
+    {
+      "target_bin": "cross_size_burst.medium, fixed",
+      "priority": "medium",
+      "difficulty": "easy",
+      "suggestion": "Set burst type to MEDIUM, FIXED mode (register offset 0x04, value 0x3) and run a minimal transfer. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and start transfer. Verify fixed address behavior on AXI bus.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to MEDIUM, FIXED mode (value 0x3)",
+        "2. Set source address 0x10000000, destination 0x20000000 in address registers (offsets 0x08, 0x0C)",
+        "3. Set transfer length to 0x10 bytes in length register (offset 0x10), start transfer",
+        "4. Verify address sequence: Monitor AXI address bus, verify fixed address behavior, check completion status"
+      ],
+      "dependencies": [],
+      "reasoning": "Basic burst type coverage. Other burst types are already covered, suggesting this is a simple configuration change requiring only setting burst type register to 0x3. Pattern analysis shows other burst types are covered, indicating this is a simple configuration change.",
+      "priority_score": 0.8,
+      "coverage_impact": 0.5,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_size_burst.large, incr",
+      "priority": "medium",
+      "difficulty": "easy",
+      "suggestion": "Set burst type to LARGE, INCR mode (register offset 0x04, value 0x1) and run a minimal transfer. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and start transfer. Verify incremental address behavior on AXI bus.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to LARGE, INCR mode (value 0x1)",
+        "2. Set source address 0x10000000, destination 0x20000000 in address registers (offsets 0x08, 0x0C)",
+        "3. Set transfer length to 0x10 bytes in length register (offset 0x10), start transfer",
+        "4. Verify address sequence: Monitor AXI address bus, verify incremental addresses behavior, check completion status"
+      ],
+      "dependencies": [],
+      "reasoning": "Basic burst type coverage. Other burst types are already covered, suggesting this is a simple configuration change requiring only setting burst type register to 0x1. Pattern analysis shows other burst types are covered, indicating this is a simple configuration change.",
+      "priority_score": 0.8,
+      "coverage_impact": 0.5,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_size_burst.large, fixed",
+      "priority": "medium",
+      "difficulty": "easy",
+      "suggestion": "Set burst type to LARGE, FIXED mode (register offset 0x04, value 0x3) and run a minimal transfer. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and start transfer. Verify fixed address behavior on AXI bus.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to LARGE, FIXED mode (value 0x3)",
+        "2. Set source address 0x10000000, destination 0x20000000 in address registers (offsets 0x08, 0x0C)",
+        "3. Set transfer length to 0x10 bytes in length register (offset 0x10), start transfer",
+        "4. Verify address sequence: Monitor AXI address bus, verify fixed address behavior, check completion status"
+      ],
+      "dependencies": [],
+      "reasoning": "Basic burst type coverage. Other burst types are already covered, suggesting this is a simple configuration change requiring only setting burst type register to 0x3. Pattern analysis shows other burst types are covered, indicating this is a simple configuration change.",
+      "priority_score": 0.8,
+      "coverage_impact": 0.5,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_error_scenarios.cp_error_recovery.retry_success",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin retry_success hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_error_scenarios coverage. Covergroup cg_error_scenarios has low coverage (33.33%), indicating fundamental gaps in test scenarios.\nMany bins in this covergroup are uncovered (4 ...",
+      "priority_score": 0.71668,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_error_scenarios.cp_error_recovery.abort",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin abort hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_error_scenarios coverage. Covergroup cg_error_scenarios has low coverage (33.33%), indicating fundamental gaps in test scenarios.\nMany bins in this covergroup are uncovered (4 ...",
+      "priority_score": 0.71668,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_transfer_size.cp_size.max",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration with [4096]. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value [4096]",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin max[4096] hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_transfer_size coverage. Covergroup cg_transfer_size has high coverage (75.0%), indicating this is likely an edge case.\nMost bins in this covergroup are covered (6 covered vs ...",
+      "priority_score": 0.55,
+      "coverage_impact": 0.25,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_error_scenarios.cp_error_type.decode_error",
+      "priority": "high",
+      "difficulty": "hard",
+      "suggestion": "Inject a decode error by programming DMA to access an unmapped address region (e.g., 0xDEADBEEF). Configure DMA channel 0 source address register (offset 0x08) to 0xDEADBEEF, destination to valid address 0x10000000, and transfer length to 0x10. Configure error injection in the AXI interconnect or use a testbench force to return DECERR (response 0x3) for this address.",
+      "test_outline": [
+        "1. Identify unmapped address range: Use address 0xDEADBEEF or check memory map for gap (typically 0x80000000-0x8FFFFFFF is unmapped in many SoCs)",
+        "2. Configure DMA channel 0: Set source address register (offset 0x08) to unmapped address 0xDEADBEEF, set destination to valid address 0x10000000",
+        "3. Set transfer length to 0x10 bytes in length register (offset 0x0C), start transfer",
+        "4. Monitor AXI bus for DECERR response (slave response 0x3), verify DMA error status register (offset 0x20) bit 2 set, check error interrupt"
+      ],
+      "dependencies": [
+        "Testbench error injection capability",
+        "Knowledge of memory map"
+      ],
+      "reasoning": "Decode errors require accessing invalid addresses. Since no_error and slave_error are covered, the basic error path works. Need to specifically target decode error response by accessing unmapped address 0xDEADBEEF. Pattern analysis indicates this is a hard-to-cover scenario requiring specific error injection setup.",
+      "priority_score": 0.51668,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_error_scenarios.cp_error_type.timeout",
+      "priority": "high",
+      "difficulty": "hard",
+      "suggestion": "Force a long-latency response to provoke DMA timeout handling. Configure DMA timeout register (offset 0x24) to 1000 cycles (0x3E8), then configure slave model to stall for 2000 cycles. Set DMA channel 0 source address to 0x10000000, destination to 0x20000000, transfer length 0x100, and start transfer. Monitor for timeout interrupt after 1000 cycles.",
+      "test_outline": [
+        "1. Configure DMA timeout register (offset 0x24) to 1000 cycles (value 0x3E8) for faster timeout testing",
+        "2. Configure slave model or interconnect to inject latency: Set stall delay to 2000 cycles (beyond timeout threshold)",
+        "3. Configure DMA channel 0: Set source address 0x10000000, destination 0x20000000, transfer length 0x100 bytes, start transfer",
+        "4. Monitor timeout interrupt (IRQ bit 3) after 1000 cycles, verify timeout status register (offset 0x28) bit 0 set, check error recovery path"
+      ],
+      "dependencies": [
+        "Slave or bus latency injection support"
+      ],
+      "reasoning": "Timeout errors require the slave to not respond within the configured timeout period (1000 cycles). This tests the DMA's timeout detection and error handling mechanism. Pattern analysis indicates this is a hard-to-cover scenario requiring specific testbench infrastructure. Pattern analysis shows this requires specific testbench infrastructure for latency injection.",
+      "priority_score": 0.51668,
+      "coverage_impact": 0.6667000000000001,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_size_burst.small, wrap",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the DMA for wrap burst mode with a burst length that causes address wrapping. Set base address to 0xFFC (near 4KB boundary) with burst length of 4 beats. Configure DMA channel 0 control register (0x00) with WRAP burst type (0x2) and transfer length register (0x0C) with value 0x4.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to WRAP mode (value 0x2), enable channel (bit 0 of control register at 0x00)",
+        "2. Set base address to 0xFFC (near 4KB boundary) in source address register (offset 0x08)",
+        "3. Configure transfer: Set transfer length to 4 beats (register offset 0x0C, value 0x4), burst length to 4",
+        "4. Start transfer by writing 1 to start bit (bit 1 of control register), monitor address sequence and verify wrap behavior at boundary"
+      ],
+      "dependencies": [
+        "Ensure AXI slave supports wrap bursts"
+      ],
+      "reasoning": "Wrap bursts are used for cache-line fills. The coverage shows INCR and SINGLE work, suggesting basic DMA functionality is correct. Wrap mode likely needs specific configuration with address near boundary (0xFFC) to trigger wrapping behavior. Pattern analysis: Cross-coverage cross_size_burst has 6/12 bins covered, suggesting partial coverage of related scenar...",
+      "priority_score": 0.5,
+      "coverage_impact": 0.5,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_size_burst.medium, wrap",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the DMA for wrap burst mode with a burst length that causes address wrapping. Set base address to 0xFFC (near 4KB boundary) with burst length of 4 beats. Configure DMA channel 0 control register (0x00) with WRAP burst type (0x2) and transfer length register (0x0C) with value 0x4.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to WRAP mode (value 0x2), enable channel (bit 0 of control register at 0x00)",
+        "2. Set base address to 0xFFC (near 4KB boundary) in source address register (offset 0x08)",
+        "3. Configure transfer: Set transfer length to 4 beats (register offset 0x0C, value 0x4), burst length to 4",
+        "4. Start transfer by writing 1 to start bit (bit 1 of control register), monitor address sequence and verify wrap behavior at boundary"
+      ],
+      "dependencies": [
+        "Ensure AXI slave supports wrap bursts"
+      ],
+      "reasoning": "Wrap bursts are used for cache-line fills. The coverage shows INCR and SINGLE work, suggesting basic DMA functionality is correct. Wrap mode likely needs specific configuration with address near boundary (0xFFC) to trigger wrapping behavior. Pattern analysis: Cross-coverage cross_size_burst has 6/12 bins covered, suggesting partial coverage of related scenar...",
+      "priority_score": 0.5,
+      "coverage_impact": 0.5,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cross_size_burst.large, wrap",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the DMA for wrap burst mode with a burst length that causes address wrapping. Set base address to 0xFFC (near 4KB boundary) with burst length of 4 beats. Configure DMA channel 0 control register (0x00) with WRAP burst type (0x2) and transfer length register (0x0C) with value 0x4.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to WRAP mode (value 0x2), enable channel (bit 0 of control register at 0x00)",
+        "2. Set base address to 0xFFC (near 4KB boundary) in source address register (offset 0x08)",
+        "3. Configure transfer: Set transfer length to 4 beats (register offset 0x0C, value 0x4), burst length to 4",
+        "4. Start transfer by writing 1 to start bit (bit 1 of control register), monitor address sequence and verify wrap behavior at boundary"
+      ],
+      "dependencies": [
+        "Ensure AXI slave supports wrap bursts"
+      ],
+      "reasoning": "Wrap bursts are used for cache-line fills. The coverage shows INCR and SINGLE work, suggesting basic DMA functionality is correct. Wrap mode likely needs specific configuration with address near boundary (0xFFC) to trigger wrapping behavior. Pattern analysis: Cross-coverage cross_size_burst has 6/12 bins covered, suggesting partial coverage of related scenar...",
+      "priority_score": 0.5,
+      "coverage_impact": 0.5,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_channel_arbitration.cp_active_channels.four_channels",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Stress arbitration with concurrent transfers to hit the 4-channel count bin. Enable channels 0-3 in channel enable register (offset 0x30), configure each with unique source/destination addresses (e.g., channel 0: 0x10000000->0x20000000, channel 1: 0x11000000->0x21000000), and start all 4 channels simultaneously with start mask 0xF.",
+      "test_outline": [
+        "1. Enable 4 DMA channels: Set enable bits in channel enable register (offset 0x30) for channels 0-3",
+        "2. Configure each channel: Channel 0 (src=0x10000000, dst=0x20000000, len=0x100), Channel 1 (src=0x11000000, dst=0x21000000, len=0x100), continue for all 4 channels",
+        "3. Launch overlapping transfers: Start all 4 channels simultaneously by writing to start register (offset 0x34) with mask 0xF",
+        "4. Monitor arbitration: Verify all 4 channels are active simultaneously, check arbitration fairness metrics in status register (offset 0x38), verify all transfers complete"
+      ],
+      "dependencies": [
+        "Testbench supports multiple concurrent DMA channels"
+      ],
+      "reasoning": "Multi-channel scenarios test the DMA's arbitration logic and ability to handle concurrent transfers across 4 channels. Pattern analysis indicates lower channel counts (1-3) are covered, suggesting this requires stress testing with maximum concurrency. Pattern analysis shows lower channel counts are covered, suggesting this requires stress testing with maximum concurrency.",
+      "priority_score": 0.4600000000000001,
+      "coverage_impact": 0.4,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_channel_arbitration.cp_active_channels.all_eight",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Stress arbitration with concurrent transfers to hit the 8-channel count bin. Enable channels 0-7 in channel enable register (offset 0x30), configure each with unique source/destination addresses (e.g., channel 0: 0x10000000->0x20000000, channel 1: 0x11000000->0x21000000), and start all 8 channels simultaneously with start mask 0xFF.",
+      "test_outline": [
+        "1. Enable 8 DMA channels: Set enable bits in channel enable register (offset 0x30) for channels 0-7",
+        "2. Configure each channel: Channel 0 (src=0x10000000, dst=0x20000000, len=0x100), Channel 1 (src=0x11000000, dst=0x21000000, len=0x100), continue for all 8 channels",
+        "3. Launch overlapping transfers: Start all 8 channels simultaneously by writing to start register (offset 0x34) with mask 0xFF",
+        "4. Monitor arbitration: Verify all 8 channels are active simultaneously, check arbitration fairness metrics in status register (offset 0x38), verify all transfers complete"
+      ],
+      "dependencies": [
+        "Testbench supports multiple concurrent DMA channels"
+      ],
+      "reasoning": "Multi-channel scenarios test the DMA's arbitration logic and ability to handle concurrent transfers across 8 channels. Pattern analysis indicates lower channel counts (1-3) are covered, suggesting this requires stress testing with maximum concurrency. Pattern analysis shows lower channel counts are covered, suggesting this requires stress testing with maximum concurrency.",
+      "priority_score": 0.4600000000000001,
+      "coverage_impact": 0.4,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_transfer_size.cp_burst_type.wrap",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a test sequence that configures the DMA for wrap burst mode with a burst length that causes address wrapping. Set base address to 0xFFC (near 4KB boundary) with burst length of 4 beats. Configure DMA channel 0 control register (0x00) with WRAP burst type (0x2) and transfer length register (0x0C) with value 0x4.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set burst type register (offset 0x04) to WRAP mode (value 0x2), enable channel (bit 0 of control register at 0x00)",
+        "2. Set base address to 0xFFC (near 4KB boundary) in source address register (offset 0x08)",
+        "3. Configure transfer: Set transfer length to 4 beats (register offset 0x0C, value 0x4), burst length to 4",
+        "4. Start transfer by writing 1 to start bit (bit 1 of control register), monitor address sequence and verify wrap behavior at boundary"
+      ],
+      "dependencies": [
+        "Ensure AXI slave supports wrap bursts"
+      ],
+      "reasoning": "Wrap bursts are used for cache-line fills. The coverage shows single and incr work, suggesting basic DMA functionality is correct. Wrap mode likely needs specific configuration with address near boundary (0xFFC) to trigger wrapping behavior. Pattern analysis: Covergroup cg_transfer_size has high coverage (75.0%), indicating this is likely an edge case.\nMost ...",
+      "priority_score": 0.4,
+      "coverage_impact": 0.25,
+      "dependency_score": 0.5
+    }
+  ]
+}

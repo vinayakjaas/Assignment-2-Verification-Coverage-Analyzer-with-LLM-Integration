@@ -1,0 +1,41 @@
+=======================================================
+Functional Coverage Report
+Design: aes_engine
+Date: 2025-03-15
+=======================================================
+Covergroup: cg_key_lengths
+Coverage: 66.67% (2/3 bins)
+Coverpoint: cp_key_len
+bin len_128 hits: 1500 covered
+bin len_192 hits: 0 UNCOVERED
+bin len_256 hits: 900 covered
+-------------------------------------------------------
+Covergroup: cg_modes
+Coverage: 50.00% (2/4 bins)
+Coverpoint: cp_mode
+bin ecb hits: 600 covered
+bin cbc hits: 500 covered
+bin ctr hits: 0 UNCOVERED
+bin gcm hits: 0 UNCOVERED
+-------------------------------------------------------
+Covergroup: cg_error_paths
+Coverage: 33.33% (1/3 bins)
+Coverpoint: cp_error
+bin parity_error hits: 30 covered
+bin key_expansion_fail hits: 0 UNCOVERED
+bin timeout hits: 0 UNCOVERED
+-------------------------------------------------------
+Cross Coverage: cross_mode_key
+Coverage: 37.50% (3/8 bins)
+<ecb, len_128> hits: 200 covered
+<ecb, len_256> hits: 150 covered
+<cbc, len_128> hits: 250 covered
+<cbc, len_192> hits: 0 UNCOVERED
+<cbc, len_256> hits: 0 UNCOVERED
+<ctr, len_128> hits: 0 UNCOVERED
+<ctr, len_256> hits: 0 UNCOVERED
+<gcm, len_256> hits: 0 UNCOVERED
+=======================================================
+Overall Coverage: 44.44%
+=======================================================
+
