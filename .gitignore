@@ -30,8 +30,8 @@ ENV/
 Thumbs.db
 
 # Project specific
-parsed_data/*.json
-!parsed_data/.gitkeep
+# parsed_data/*.json  # Commented out to allow sample parsed outputs
+# !parsed_data/.gitkeep
 
 # API keys (if accidentally committed)
 setup_api_key.sh.local

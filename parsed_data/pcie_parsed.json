@@ -1,0 +1,266 @@
+{
+  "design": "pcie_controller",
+  "overall_coverage": 48.57,
+  "covergroups": [
+    {
+      "name": "cg_link_speed",
+      "coverage": 66.67,
+      "coverpoints": [
+        {
+          "name": "cp_speed",
+          "bins": [
+            {
+              "name": "gen1",
+              "range": null,
+              "hits": 5000,
+              "covered": true,
+              "raw": "bin gen1 hits: 5000 covered"
+            },
+            {
+              "name": "gen2",
+              "range": null,
+              "hits": 3200,
+              "covered": true,
+              "raw": "bin gen2 hits: 3200 covered"
+            },
+            {
+              "name": "gen3",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin gen3 hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cg_payload_size",
+      "coverage": 75.0,
+      "coverpoints": [
+        {
+          "name": "cp_size",
+          "bins": [
+            {
+              "name": "small",
+              "range": "[1:64]",
+              "hits": 8000,
+              "covered": true,
+              "raw": "bin small[1:64] hits: 8000 covered"
+            },
+            {
+              "name": "medium",
+              "range": "[65:256]",
+              "hits": 4500,
+              "covered": true,
+              "raw": "bin medium[65:256] hits: 4500 covered"
+            },
+            {
+              "name": "large",
+              "range": "[257:1024]",
+              "hits": 1200,
+              "covered": true,
+              "raw": "bin large[257:1024] hits: 1200 covered"
+            },
+            {
+              "name": "max",
+              "range": "[1025:4096]",
+              "hits": 0,
+              "covered": false,
+              "raw": "bin max[1025:4096] hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cg_transaction_types",
+      "coverage": 50.0,
+      "coverpoints": [
+        {
+          "name": "cp_txn_type",
+          "bins": [
+            {
+              "name": "memory_read",
+              "range": null,
+              "hits": 6000,
+              "covered": true,
+              "raw": "bin memory_read hits: 6000 covered"
+            },
+            {
+              "name": "memory_write",
+              "range": null,
+              "hits": 4500,
+              "covered": true,
+              "raw": "bin memory_write hits: 4500 covered"
+            },
+            {
+              "name": "io_read",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin io_read hits: 0 UNCOVERED"
+            },
+            {
+              "name": "config_write",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin config_write hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cg_error_handling",
+      "coverage": 25.0,
+      "coverpoints": [
+        {
+          "name": "cp_error_type",
+          "bins": [
+            {
+              "name": "no_error",
+              "range": null,
+              "hits": 15000,
+              "covered": true,
+              "raw": "bin no_error hits: 15000 covered"
+            },
+            {
+              "name": "crc_error",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin crc_error hits: 0 UNCOVERED"
+            },
+            {
+              "name": "timeout",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin timeout hits: 0 UNCOVERED"
+            },
+            {
+              "name": "malformed_packet",
+              "range": null,
+              "hits": 0,
+              "covered": false,
+              "raw": "bin malformed_packet hits: 0 UNCOVERED"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cross_coverage": [
+    {
+      "name": "cross_speed_size",
+      "coverage": 40.0,
+      "bins": [
+        {
+          "label": "gen1, small",
+          "hits": 2000,
+          "covered": true,
+          "raw": "<gen1, small> hits: 2000 covered"
+        },
+        {
+          "label": "gen1, medium",
+          "hits": 1500,
+          "covered": true,
+          "raw": "<gen1, medium> hits: 1500 covered"
+        },
+        {
+          "label": "gen1, large",
+          "hits": 500,
+          "covered": true,
+          "raw": "<gen1, large> hits: 500 covered"
+        },
+        {
+          "label": "gen1, max",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen1, max> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen2, small",
+          "hits": 1800,
+          "covered": true,
+          "raw": "<gen2, small> hits: 1800 covered"
+        },
+        {
+          "label": "gen2, medium",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen2, medium> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen2, large",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen2, large> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen2, max",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen2, max> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen3, small",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen3, small> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen3, medium",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen3, medium> hits: 0 UNCOVERED"
+        },
+        {
+          "label": "gen3, large",
+          "hits": 0,
+          "covered": false,
+          "raw": "<gen3, large> hits: 0 UNCOVERED"
+        }
+      ]
+    }
+  ],
+  "uncovered_bins": [
+    {
+      "covergroup": "cg_link_speed",
+      "coverpoint": "cp_speed",
+      "bin": "gen3"
+    },
+    {
+      "covergroup": "cg_payload_size",
+      "coverpoint": "cp_size",
+      "bin": "max[1025:4096]"
+    },
+    {
+      "covergroup": "cg_transaction_types",
+      "coverpoint": "cp_txn_type",
+      "bin": "io_read"
+    },
+    {
+      "covergroup": "cg_transaction_types",
+      "coverpoint": "cp_txn_type",
+      "bin": "config_write"
+    },
+    {
+      "covergroup": "cg_error_handling",
+      "coverpoint": "cp_error_type",
+      "bin": "crc_error"
+    },
+    {
+      "covergroup": "cg_error_handling",
+      "coverpoint": "cp_error_type",
+      "bin": "timeout"
+    },
+    {
+      "covergroup": "cg_error_handling",
+      "coverpoint": "cp_error_type",
+      "bin": "malformed_packet"
+    }
+  ]
+}
