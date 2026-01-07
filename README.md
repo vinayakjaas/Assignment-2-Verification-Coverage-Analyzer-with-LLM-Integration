@@ -14,9 +14,15 @@ An intelligent agent that parses functional coverage reports, identifies uncover
 
 ### Installation Steps
 
-1. **Clone/Navigate to the project directory**
+1. **Clone the repository**
    ```bash
-   cd /Users/vinayakpc/Desktop/assignment
+   git clone git@github.com:vinayakjaas/Assignment-2-Verification-Coverage-Analyzer-with-LLM-Integration.git
+   cd Assignment-2-Verification-Coverage-Analyzer-with-LLM-Integration
+   ```
+   Or using HTTPS:
+   ```bash
+   git clone https://github.com/vinayakjaas/Assignment-2-Verification-Coverage-Analyzer-with-LLM-Integration.git
+   cd Assignment-2-Verification-Coverage-Analyzer-with-LLM-Integration
    ```
 
 2. **Install dependencies**
@@ -25,10 +31,12 @@ An intelligent agent that parses functional coverage reports, identifies uncover
    ```
 
 3. **Set up API keys (Optional - for LLM features)**
+   
+   Edit `setup_api_key.sh` and replace `sk-proj-your-key-here` with your actual API key, then:
    ```bash
    source setup_api_key.sh
    ```
-   Or manually:
+   Or manually set environment variables:
    ```bash
    export OPENAI_API_KEY="sk-proj-your-key-here"
    export COVERAGE_LLM_PROVIDER="openai"
@@ -318,12 +326,15 @@ The web UI provides:
 - Real-time suggestion generation
 - Prioritized results table
 
+**📹 UI Demo Video:**
+Watch the web UI in action: [UI Demo Video](https://drive.google.com/file/d/1vN5MOKdjJkaj1ZcJrsHVFh0i8aYytNVy/view?usp=sharing)
+
 ---
 
 ## 📁 Project Structure
 
 ```
-assignment/
+Assignment-2-Verification-Coverage-Analyzer-with-LLM-Integration/
 ├── src/coverage_analyzer/
 │   ├── parser.py          # Part 1: Report parsing
 │   ├── suggester.py       # Part 2: LLM suggestions
@@ -335,9 +346,61 @@ assignment/
 ├── examples/              # Sample reports and outputs
 ├── parsed_data/          # Parsed JSON outputs
 ├── requirements.txt       # Python dependencies
-└── README.md             # This file
+├── setup_api_key.sh      # API key setup script (edit before use)
+├── .gitignore           # Git ignore rules
+└── README.md            # This file
 ```
 
+---
+
+## Sample Outputs
+
+The project includes sample coverage reports and their corresponding outputs:
+
+### Test Reports Available:
+
+1. **sample_report.txt** - DMA Controller coverage report
+   - Design: `dma_controller`
+   - Overall Coverage: 54.84%
+   - Output: `examples/sample_output.json`
+   - Parsed: `parsed_data/sample_parsed.json`
+
+2. **additional_report.txt** - AES Engine coverage report
+   - Design: `aes_engine`
+   - Overall Coverage: 44.44%
+   - Output: `examples/additional_output.json`
+   - Parsed: `parsed_data/test_parsed.json`
+
+3. **pcie_controller_report.txt** - PCIe Controller coverage report (newly created)
+   - Design: `pcie_controller`
+   - Overall Coverage: 48.57%
+   - Output: `examples/pcie_output.json`
+   - Parsed: `parsed_data/pcie_parsed.json`
+
+### Testing the New PCIe Controller Report:
+
+```bash
+# Part 1: Parse the report
+PYTHONPATH=src python3 -m coverage_analyzer.cli parse examples/pcie_controller_report.txt --out parsed_data/pcie_parsed.json
+
+# Part 2 & 3: Generate suggestions with prioritization
+PYTHONPATH=src python3 -m coverage_analyzer.cli suggest examples/pcie_controller_report.txt --out examples/pcie_output.json
+
+# Part 4: Predict closure
+PYTHONPATH=src python3 -m coverage_analyzer.cli predict examples/pcie_controller_report.txt
+
+# Complete demo
+PYTHONPATH=src python3 -m coverage_analyzer.cli demo --path examples/pcie_controller_report.txt
+```
+
+**PCIe Controller Results:**
+- **Uncovered bins**: 7 regular bins + 7 cross-coverage bins
+- **Total suggestions generated**: 14 prioritized suggestions
+- **Top priority**: Error handling scenarios (malformed_packet, crc_error, timeout)
+- **Estimated closure time**: 2.8 hours
+- **Closure probability**: 60%
+
+---
 
 ## 🎓 Summary
 

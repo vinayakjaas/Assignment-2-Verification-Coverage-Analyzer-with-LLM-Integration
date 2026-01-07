@@ -1,0 +1,245 @@
+{
+  "suggestions": [
+    {
+      "target_bin": "cg_error_handling.cp_error_type.malformed_packet",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin malformed_packet hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_error_handling coverage. Covergroup cg_error_handling has low coverage (25.0%), indicating fundamental gaps in test scenarios.\nMany bins in this covergroup are uncovered (3 un...",
+      "priority_score": 0.75,
+      "coverage_impact": 0.75,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen1, max",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen1, max> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen2, medium",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen2, medium> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen2, large",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen2, large> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen2, max",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen2, max> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen3, small",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen3, small> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen3, medium",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen3, medium> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cross_speed_size.gen3, large",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin '<gen3, large> hits: 0 UNCOVERED' is uncovered; exercising this path increases cross_speed_size coverage. Cross-coverage cross_speed_size has 4/11 bins covered, suggesting partial coverage of related scenarios....",
+      "priority_score": 0.69,
+      "coverage_impact": 0.6,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_transaction_types.cp_txn_type.io_read",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin io_read hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_transaction_types coverage. Covergroup cg_transaction_types has moderate coverage (50.0%), suggesting some scenarios are missing.\nSimilar covered bins include: cp_txn_type.memory...",
+      "priority_score": 0.6499999999999999,
+      "coverage_impact": 0.5,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_transaction_types.cp_txn_type.config_write",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin config_write hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_transaction_types coverage. Covergroup cg_transaction_types has moderate coverage (50.0%), suggesting some scenarios are missing.\nSimilar covered bins include: cp_txn_type.memory...",
+      "priority_score": 0.6499999999999999,
+      "coverage_impact": 0.5,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_link_speed.cp_speed.gen3",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin gen3 hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_link_speed coverage. Covergroup cg_link_speed has moderate coverage (66.67%), suggesting some scenarios are missing.\nMost bins in this covergroup are covered (2 covered vs...",
+      "priority_score": 0.58332,
+      "coverage_impact": 0.33329999999999993,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_payload_size.cp_size.max",
+      "priority": "high",
+      "difficulty": "medium",
+      "suggestion": "Create a targeted test hitting the uncovered bin configuration with [1025:4096]. Configure DMA channel 0 with source address 0x10000000, destination 0x20000000, transfer length 0x10 bytes, and set the specific coverpoint parameter to target this bin.",
+      "test_outline": [
+        "1. Configure DMA channel 0: Set base configuration (source address 0x10000000, destination 0x20000000)",
+        "2. Set coverpoint-specific parameter: Configure register to target bin value [1025:4096]",
+        "3. Set transfer length to 0x10 bytes, start transfer",
+        "4. Monitor coverage and verify bin hit in coverage report"
+      ],
+      "dependencies": [],
+      "reasoning": "Bin 'bin max[1025:4096] hits: 0 UNCOVERED' is uncovered; exercising this path increases cg_payload_size coverage. Covergroup cg_payload_size has high coverage (75.0%), indicating this is likely an edge case.\nMost bins in this covergroup are covered (3 covered vs 1...",
+      "priority_score": 0.55,
+      "coverage_impact": 0.25,
+      "dependency_score": 1.0
+    },
+    {
+      "target_bin": "cg_error_handling.cp_error_type.crc_error",
+      "priority": "high",
+      "difficulty": "hard",
+      "suggestion": "Inject protocol or slave error during DMA transaction.",
+      "test_outline": [
+        "1. Enable error injection on the target interface",
+        "2. Issue DMA transfer expected to fail",
+        "3. Check that error status and recovery behave per spec"
+      ],
+      "dependencies": [
+        "Error injection hooks in testbench"
+      ],
+      "reasoning": "Error scenarios test the DMA's error handling and recovery mechanisms.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.75,
+      "dependency_score": 0.5
+    },
+    {
+      "target_bin": "cg_error_handling.cp_error_type.timeout",
+      "priority": "high",
+      "difficulty": "hard",
+      "suggestion": "Force a long-latency response to provoke DMA timeout handling. Configure DMA timeout register (offset 0x24) to 1000 cycles (0x3E8), then configure slave model to stall for 2000 cycles. Set DMA channel 0 source address to 0x10000000, destination to 0x20000000, transfer length 0x100, and start transfer. Monitor for timeout interrupt after 1000 cycles.",
+      "test_outline": [
+        "1. Configure DMA timeout register (offset 0x24) to 1000 cycles (value 0x3E8) for faster timeout testing",
+        "2. Configure slave model or interconnect to inject latency: Set stall delay to 2000 cycles (beyond timeout threshold)",
+        "3. Configure DMA channel 0: Set source address 0x10000000, destination 0x20000000, transfer length 0x100 bytes, start transfer",
+        "4. Monitor timeout interrupt (IRQ bit 3) after 1000 cycles, verify timeout status register (offset 0x28) bit 0 set, check error recovery path"
+      ],
+      "dependencies": [
+        "Slave or bus latency injection support"
+      ],
+      "reasoning": "Timeout errors require the slave to not respond within the configured timeout period (1000 cycles). This tests the DMA's timeout detection and error handling mechanism. Pattern analysis indicates this is a hard-to-cover scenario requiring specific testbench infrastructure. Pattern analysis shows this requires specific testbench infrastructure for latency injection.",
+      "priority_score": 0.55,
+      "coverage_impact": 0.75,
+      "dependency_score": 0.5
+    }
+  ]
+}

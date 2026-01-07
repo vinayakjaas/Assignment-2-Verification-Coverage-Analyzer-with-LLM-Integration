@@ -1,0 +1,53 @@
+=======================================================
+Functional Coverage Report
+Design: pcie_controller
+Date: 2025-01-15
+=======================================================
+Covergroup: cg_link_speed
+Coverage: 66.67% (2/3 bins)
+Coverpoint: cp_speed
+bin gen1 hits: 5000 covered
+bin gen2 hits: 3200 covered
+bin gen3 hits: 0 UNCOVERED
+-------------------------------------------------------
+Covergroup: cg_payload_size
+Coverage: 75.00% (3/4 bins)
+Coverpoint: cp_size
+bin small[1:64] hits: 8000 covered
+bin medium[65:256] hits: 4500 covered
+bin large[257:1024] hits: 1200 covered
+bin max[1025:4096] hits: 0 UNCOVERED
+-------------------------------------------------------
+Covergroup: cg_transaction_types
+Coverage: 50.00% (2/4 bins)
+Coverpoint: cp_txn_type
+bin memory_read hits: 6000 covered
+bin memory_write hits: 4500 covered
+bin io_read hits: 0 UNCOVERED
+bin config_write hits: 0 UNCOVERED
+-------------------------------------------------------
+Covergroup: cg_error_handling
+Coverage: 25.00% (1/4 bins)
+Coverpoint: cp_error_type
+bin no_error hits: 15000 covered
+bin crc_error hits: 0 UNCOVERED
+bin timeout hits: 0 UNCOVERED
+bin malformed_packet hits: 0 UNCOVERED
+-------------------------------------------------------
+Cross Coverage: cross_speed_size
+Coverage: 40.00% (4/10 bins)
+<gen1, small> hits: 2000 covered
+<gen1, medium> hits: 1500 covered
+<gen1, large> hits: 500 covered
+<gen1, max> hits: 0 UNCOVERED
+<gen2, small> hits: 1800 covered
+<gen2, medium> hits: 0 UNCOVERED
+<gen2, large> hits: 0 UNCOVERED
+<gen2, max> hits: 0 UNCOVERED
+<gen3, small> hits: 0 UNCOVERED
+<gen3, medium> hits: 0 UNCOVERED
+<gen3, large> hits: 0 UNCOVERED
+=======================================================
+Overall Coverage: 48.57%
+=======================================================
+
